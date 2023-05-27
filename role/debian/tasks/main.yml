@@ -1,0 +1,10 @@
+---
+- name: Update complete
+  apt:
+    name: "*"
+    state: latest
+  when: ansible_os_family == "Debian"
+
+- name: Check os release
+  debug:
+    msg: "{{ ansible_distribution_version }}"
