@@ -1,0 +1,7 @@
+packages:
+- vim
+- curl
+- wget
+- net-tools
+- bind-utils
+- python3
