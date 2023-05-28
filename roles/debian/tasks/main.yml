@@ -14,4 +14,4 @@
 
 - name: Check windows name
   debug:
-    msg: ansible_os_family
+    msg: "{{ ansible_os_family }}"
