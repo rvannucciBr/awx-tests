@@ -10,4 +10,5 @@
   ansible.windows.win_updates:
     category_names: '*'
     reboot: yes
+    state: downloaded
   when: ansible_os_family == "Windows"
