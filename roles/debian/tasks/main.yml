@@ -1,17 +1,13 @@
 ---
-# - name: Update complete
-#   apt:
-#     name: "*"
-#     state: latest
-#   notify: "Install packages"
-#   when: ansible_os_family == "Debian" and ansible_distribution_version == '12'
+- name: Update complete
+  apt:
+    name: "*"
+    state: latest
+  notify: "Install packages"
+  when: ansible_os_family == "Debian" and ansible_distribution_version == '12'
 
-# - name: Update Windows
-#   ansible.windows.win_updates:
-#     category_names: '*'
-#     reboot: yes
-#   when: ansible_os_family == "Windows"
-
-- name: Check windows name
-  debug:
-    msg: "{{ ansible_os_family }}"
+- name: Update Windows
+  ansible.windows.win_updates:
+    category_names: '*'
+    reboot: yes
+  when: ansible_os_family == "Windows"
