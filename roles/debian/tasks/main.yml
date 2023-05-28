@@ -10,13 +10,13 @@
   debug:
     msg: "{{ item }}"
   with_items: 
-  - update_types
+  - "{{ update_types }}"
 
-- name: Update Windows
-  ansible.windows.win_updates:
-    category_names: "{{ item }}"
-    reboot: yes
-    state: downloaded
-  when: ansible_os_family == "Windows"
-  with_items:
-  - update_types
+# - name: Update Windows
+#   ansible.windows.win_updates:
+#     category_names: "{{ item }}"
+#     reboot: yes
+#     state: downloaded
+#   when: ansible_os_family == "Windows"
+#   with_items:
+#   - "{{ update_types }}"
