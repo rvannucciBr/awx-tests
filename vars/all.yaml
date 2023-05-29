@@ -5,3 +5,7 @@ packages:
 - net-tools
 - bind-utils
 - python3
+
+pip_updates:
+- setuptools
+- pip
