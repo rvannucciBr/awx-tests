@@ -5,4 +5,4 @@
   - vars/all.yaml
 
   roles:
-  - debian
+  - linux
