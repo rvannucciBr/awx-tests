@@ -1,7 +1,7 @@
 ---
 - name: Home
   hosts: all
-  var_files:
+  vars_files:
   - vars/all.yaml
 
   roles:
