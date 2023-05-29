@@ -1,5 +1,5 @@
 ---
-- name: Install packages
+- name: Install packages | Debian
   apt:
     name: "{{ item }}"
     state: latest
@@ -7,8 +7,64 @@
   with_items: 
   - packages
 
-- name: OCI python CLI
+- name: Install packages | RedHat equals 6
+  apt:
+    name: "{{ item }}"
+    state: latest
+  when: ansible_os_family == "Redhat" and ansible_distribution_version >= '6' and ansible_distribution_version < '7'
+  with_items: 
+  - packages
+
+- name: Install packages | RedHat equals 7
+  apt:
+    name: "{{ item }}"
+    state: latest
+  when: ansible_os_family == "Redhat" and ansible_distribution_version >= '7' and ansible_distribution_version < '8'
+  with_items: 
+  - packages
+
+- name: Install packages | RedHat equals 8
+  apt:
+    name: "{{ item }}"
+    state: latest
+  when: ansible_os_family == "Redhat" and ansible_distribution_version >= '8' and ansible_distribution_version < '9'
+  with_items: 
+  - packages
+
+- name: Install packages | RedHat equals 9
+  apt:
+    name: "{{ item }}"
+    state: latest
+  when: ansible_os_family == "Redhat" and ansible_distribution_version >= '9'
+  with_items: 
+  - packages
+
+- name: OCI python CLI | Debian
   pip:
     name: oci-cli
     state: latest
   when: ansible_os_family == 'Debian' and ansible_distribution_version == '11'
+
+- name: OCI python CLI | RedHat equals 6
+  pip:
+    name: oci-cli
+    state: latest
+  when: ansible_os_family == "Redhat" and ansible_distribution_version >= '6' and ansible_distribution_version < '7'
+
+- name: OCI python CLI | RedHat equals 7
+  pip:
+    name: oci-cli
+    state: latest
+  when: ansible_os_family == "Redhat" and ansible_distribution_version >= '7' and ansible_distribution_version < '8'
+
+- name: OCI python CLI | RedHat equals 8
+  pip:
+    name: oci-cli
+    state: latest
+  when: ansible_os_family == "Redhat" and ansible_distribution_version >= '8' and ansible_distribution_version < '9'
+
+- name: OCI python CLI | RedHat equals 9
+  pip:
+    name: oci-cli
+    state: latest
+  when: ansible_os_family == "Redhat" and ansible_distribution_version >= '9'
