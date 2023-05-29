@@ -40,7 +40,7 @@
     state: latest
   when: ansible_os_family == "Debian" and ansible_distribution_version == '11'
   with_items:
-  - pip_updates
+  - "{{ pip_updates }}"
   notify: "OCI python CLI"
 
 - name: Update pip and setuptools | Redhat equals 6
@@ -49,7 +49,7 @@
     state: latest
   when: ansible_os_family == "Redhat" and ansible_distribution_version >= '6' and ansible_distribution_version < '7'
   with_items:
-  - pip_updates
+  - "{{ pip_updates }}"
   notify: "OCI python CLI | Redhat equals 6"
 
 - name: Update pip and setuptools | Redhat equals 7
@@ -58,7 +58,7 @@
     state: latest
   when: ansible_os_family == "Redhat" and ansible_distribution_version >= '7' and ansible_distribution_version < '8'
   with_items:
-  - pip_updates
+  - "{{ pip_updates }}"
   notify: "OCI python CLI | Redhat equals 7"
 
 - name: Update pip and setuptools | Redhat equals 8
@@ -67,7 +67,7 @@
     state: latest
   when: ansible_os_family == "Redhat" and ansible_distribution_version >= '8' and ansible_distribution_version < '9'
   with_items:
-  - pip_updates
+  - "{{ pip_updates }}"
   notify: "OCI python CLI | Redhat equals 8"
 
 - name: Update pip and setuptools | Redhat equals 9
@@ -76,7 +76,7 @@
     state: latest
   when: ansible_os_family == "Redhat" and ansible_distribution_version >= '9'
   with_items:
-  - pip_updates
+  - "{{ pip_updates }}"
   notify: "OCI python CLI | Redhat equals 9"
 
 - name: Update Windows | Windows

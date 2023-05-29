@@ -1,8 +1,8 @@
 ---
 - name: Home
   hosts: all
-  vars_files:
-  - vars/all.yaml
+  # vars_files:
+  # - vars/all.yaml
 
   roles:
   - linux
