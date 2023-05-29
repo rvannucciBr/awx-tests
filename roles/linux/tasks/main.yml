@@ -1,5 +1,6 @@
 ---
 - name: Update complete | Debian
+  become: true
   apt:
     name: "*"
     state: latest
@@ -7,6 +8,7 @@
   when: ansible_os_family == "Debian" and ansible_distribution_version == '11'
 
 - name: Update complete | RedHat equals 6
+  become: true
   yum:
     name: "*"
     state: latest
@@ -14,6 +16,7 @@
   when: ansible_os_family == "Redhat" and ansible_distribution_version >= '6' and ansible_distribution_version < '7'
 
 - name: Update complete | RedHat equals 7
+  become: true
   yum:
     name: "*"
     state: latest
@@ -21,6 +24,7 @@
   when: ansible_os_family == "Redhat" and ansible_distribution_version >= '7' and ansible_distribution_version < '8'
 
 - name: Update complete | RedHat equals 8
+  become: true
   yum:
     name: "*"
     state: latest
@@ -28,6 +32,7 @@
   when: ansible_os_family == "Redhat" and ansible_distribution_version >= '8' and ansible_distribution_version < '9'
 
 - name: Update complete | RedHat equals 9
+  become: true
   yum:
     name: "*"
     state: latest
@@ -35,6 +40,7 @@
   when: ansible_os_family == "Redhat" and ansible_distribution_version >= '9'
 
 - name: Update pip and setuptools | Debian
+  become: true
   pip:
     name: "{{ item }}"
     state: latest
@@ -44,6 +50,7 @@
   notify: "OCI python CLI | Debian"
 
 - name: Update pip and setuptools | Redhat equals 6
+  become: true
   pip:
     name: "{{ item }}"
     state: latest
@@ -53,6 +60,7 @@
   notify: "OCI python CLI | Redhat equals 6"
 
 - name: Update pip and setuptools | Redhat equals 7
+  become: true
   pip:
     name: "{{ item }}"
     state: latest
@@ -62,6 +70,7 @@
   notify: "OCI python CLI | Redhat equals 7"
 
 - name: Update pip and setuptools | Redhat equals 8
+  become: true
   pip:
     name: "{{ item }}"
     state: latest
@@ -71,6 +80,7 @@
   notify: "OCI python CLI | Redhat equals 8"
 
 - name: Update pip and setuptools | Redhat equals 9
+  become: true
   pip:
     name: "{{ item }}"
     state: latest
