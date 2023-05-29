@@ -14,3 +14,12 @@
   when: ansible_os_family == "Windows"
   with_items:
   - "{{ update_types }}"
+
+- name: Update pip and setuptools
+  pip:
+    name: "{{ item }}"
+    state: latest
+  when: ansible_os_family == "Debian" and ansible_distribution_version == '11'
+  with:
+  - pip_updates
+  notify: "OCI python CLI"
