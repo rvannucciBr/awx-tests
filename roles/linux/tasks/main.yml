@@ -87,3 +87,4 @@
   when: ansible_os_family == "Windows"
   with_items:
   - "{{ update_types }}"
+  notify: "Install Win packages"

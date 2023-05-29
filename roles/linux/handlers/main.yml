@@ -68,3 +68,10 @@
     name: oci-cli
     state: latest
   when: ansible_os_family == "Redhat" and ansible_distribution_version >= '9'
+
+- name: Install Win packages
+  ansible.windows.win_get_url:
+    url: "{{ item }}"
+    dest: C:\Users\rvann\Downloads
+    force: no
+  when: ansible_os_family == "Windows"
